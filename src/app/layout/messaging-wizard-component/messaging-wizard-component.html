@@ -1,0 +1,97 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">Message Wizard</h2>
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12">
+                <form role="form">
+                    <div class="row">
+                        <div class="col-3">
+                            <fieldset class="form-group">
+                                <label>Text: </label>
+                                <input class="form-control" name="text" [(ngModel)]="messageWizard.text"
+                                       placeholder="Text">
+                            </fieldset>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label>Message Types</label>
+                                <select class="form-control" name="types" [(ngModel)]="messageWizard.type">
+                                    <option ngValue="" disabled>Select Type</option>
+                                    <option ngValue="starter">Starter</option>
+                                    <option ngValue="explanation">Explanation</option>
+                                    <option ngValue="needs">Needs</option>
+                                    <option ngValue="ending">Ending</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group check-box-base">
+                                <span>Editable</span>
+                                <span class="float-left">
+                                    <input type="checkbox" class="check-box form-control" name="editable"
+                                                  [(ngModel)]="messageWizard.editable">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-lg btn-success float-left"
+                                    (click)="addEdit()">{{editMode ? 'Edit' : 'Add'}}</button>
+                            <button type="button" class="btn btn-lg btn-danger float-left "
+                                    (click)="resetForm()">Cancel
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Message Wizard List
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Text</th>
+                    <th>Type</th>
+                    <th>Editable</th>
+                    <th>Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of messageWizardList;let i=index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{item.text}}</td>
+                    <td>{{item.type}}</td>
+                    <td>{{item.editable}}</td>
+                    <td>
+                        <span class="table-buttons">
+                            <i class="fa  fa-edit primary-color pointer" (click)="setEditMode(item,i)"></i>
+                             <i class="fa  fa-trash-o danger-color pointer" (click)="selectItemToDelete(item,i);open(deleteModal)"></i>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #deleteModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h4 class="text-center">Are you sure to delete this item?</h4>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger float-left" (click)="c('Close click');resetModal()">NO</button>
+        <button type="button" class="btn btn-success float-left" (click)="c('Close click');delete()">YES</button>
+    </div>
+</ng-template>

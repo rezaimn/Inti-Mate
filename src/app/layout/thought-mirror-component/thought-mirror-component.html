@@ -1,0 +1,93 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">Think Habits</h2>
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12">
+                <form role="form">
+                    <div class="row">
+                        <div class="col-3">
+                            <fieldset class="form-group">
+                                <label>Name: </label>
+                                <input class="form-control" name="definition" [(ngModel)]="thoughtMirror.definition"
+                                       placeholder="Definition">
+                            </fieldset>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label>Select First Think Habit</label>
+                                <select class="form-control" name="first" [(ngModel)]="thoughtMirror.first" >
+                                    <option [ngValue]="0" disabled >Select Second First Think Habit</option>
+                                    <option [ngValue]="item.id" *ngFor="let item of firstThinkHabitList;let i=index">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label>Second First Think Habit</label>
+                                <select class="form-control" name="second" [(ngModel)]="thoughtMirror.second"  >
+                                    <option [ngValue]="0" disabled >Select Second First Think Habit</option>
+                                    <option [ngValue]="item.id" *ngFor="let item of secondThinkHabitList;let i=index">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-lg btn-success float-left"
+                                    (click)="addEdit()">{{editMode ? 'Edit' : 'Add'}}</button>
+                            <button type="button" class="btn btn-lg btn-danger float-left "
+                                    (click)="resetForm()">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Think Habit List
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Definition</th>
+                    <th>First Think Habit</th>
+                    <th>Second Think Habit</th>
+                    <th>Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of thoughtMirrorList;let i=index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{item.definition}}</td>
+                    <td>{{getThinkHabitById(item.habit_cards?item.habit_cards[0]:0)}}</td>
+                    <td>{{getThinkHabitById(item.habit_cards?item.habit_cards[1]:0)}}</td>
+                    <td>
+                        <span class="table-buttons">
+                            <i class="fa  fa-edit primary-color pointer" (click)="setEditMode(item,i)"></i>
+                            <i class="fa  fa-trash-o danger-color pointer" (click)="selectItemToDelete(item,i);open(deleteModal)"></i>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #deleteModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h4 class="text-center">Are you sure to delete this item?</h4>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger float-left" (click)="c('Close click');resetModal()">NO</button>
+        <button type="button" class="btn btn-success float-left" (click)="c('Close click');delete()">YES</button>
+    </div>
+</ng-template>

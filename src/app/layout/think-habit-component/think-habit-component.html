@@ -1,0 +1,110 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">Think Habits</h2>
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12">
+                <form role="form">
+                    <div class="row">
+                        <div class="col-2">
+                            <label for="file-upload">
+                                <img [src]="thinkHabit?.icon" class="rounded mr-2 pointer" width="180"
+                                     *ngIf="thinkHabit?.icon !== null">
+                                <img src="assets/images/placeholder.png" *ngIf="thinkHabit?.icon === null"
+                                     class="pointer" width="120"
+                                     height="80">
+                            </label>
+                            <input type="file" style="display: none" id="file-upload" (change)="onFileChanged($event)">
+                        </div>
+                        <div class="col-7">
+                            <div class="row">
+                                <div class="col-4">
+                                    <fieldset class="form-group">
+                                        <label>Name: </label>
+                                        <input class="form-control" name="name" [(ngModel)]="thinkHabit.name"
+                                               placeholder="Name">
+                                    </fieldset>
+                                </div>
+                                <div class="col-4">
+                                    <fieldset class="form-group">
+                                        <label>Definition: </label>
+                                        <input type="text" class="form-control" name="definition"
+                                               [(ngModel)]="thinkHabit.definition" placeholder="Definition">
+                                    </fieldset>
+                                </div>
+                                <div class="col-4">
+                                    <fieldset class="form-group">
+                                        <label>Reframe: </label>
+                                        <input type="text" class="form-control" name="reframe"
+                                               [(ngModel)]="thinkHabit.reframe" placeholder="Reframe">
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-3">
+                            <button type="button" class="btn btn-lg btn-success float-left"
+                                    (click)="addEdit()">{{editMode ? 'Edit' : 'Add'}}</button>
+                            <button type="button" class="btn btn-lg btn-danger float-left "
+                                    (click)="resetForm()">Cancel
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Think Habits List
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Definition</th>
+                    <th>Reframe</th>
+                    <th>Icon</th>
+                    <th>Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of thinkHabitList;let i=index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.definition}}</td>
+                    <td>{{item.reframe}}</td>
+                    <td>
+                        <img [src]="item.icon" height="50"/>
+                    </td>
+                    <td>
+                        <span class="table-buttons">
+                            <i class="fa  fa-edit primary-color pointer" (click)="setEditMode(item,i)"></i>
+                            <i class="fa  fa-trash-o danger-color pointer" (click)="selectItemToDelete(item,i);open(deleteModal)"></i>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #deleteModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h4 class="text-center">Are you sure to delete this item?</h4>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger float-left" (click)="c('Close click');resetModal()">NO</button>
+        <button type="button" class="btn btn-success float-left" (click)="c('Close click');delete()">YES</button>
+    </div>
+</ng-template>

@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/bootstrap";
+@import "spinner";
+@import "utils";
+@import "rtl";
+@import "responsive";
+
+@media print {
+    .breadcrumb {
+        display: none !important;
+    }
+}
+.primary-color{
+    color:$primary;
+}
+.danger-color{
+    color:$danger;
+}
+.success-color{
+    color: $success;
+}
+.white-color{
+    color: $white;
+}
+.btn{
+    height: 42px!important;
+    padding: 0 15px;
+    margin-top: 28px;
+    color: #fff;
+    margin-left: 10px;
+    margin-right: 10px;
+    min-width: 100px;
+}
+.pointer{
+    cursor: pointer;
+}
+.table-buttons{
+    i{
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 24px;
+    }
+}
+.card{
+    margin-bottom: 15px;
+}
+.check-box{
+    height: 24px;
+    width: 24px;
+    margin-right: 10px;
+}
+.check-box-base{
+    margin-top: 40px;
+}
+.modal-footer{
+    justify-content: center!important;
+    .btn{
+        margin-top: 0px!important;
+    }
+}
+.modal-dialog{
+   top: 20%;
+}
+.card-header{
+    background: #333;
+    color: #fff;
+}

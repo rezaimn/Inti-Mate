@@ -1,0 +1,33 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img class="user-avatar" src="assets/images/logo.png" width="150px"/>
+            <h1>Register</h1>
+            <form role="form">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" name="username" [(ngModel)]="body.username"
+                               class="form-control input-underline input-lg" placeholder="User Name">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="email" [(ngModel)]="body.email"
+                               class="form-control input-underline input-lg" id=""
+                               placeholder="Email">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg"
+                               name="password" [(ngModel)]="body.password"
+                               placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="confirm_password" [(ngModel)]="body.confirmPassword"
+                               class="form-control input-underline input-lg" placeholder="Repeat Password">
+                    </div>
+                </div>
+                <a class="btn rounded-btn" (click)="onSignup()">Register</a>&nbsp;
+            </form>
+        </div>
+    </div>
+</div>

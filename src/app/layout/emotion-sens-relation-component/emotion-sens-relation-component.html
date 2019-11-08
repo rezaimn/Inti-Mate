@@ -1,0 +1,36 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">Physical Sensations & Secondary Emotions Relation</h2>
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            Relations
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th class="primary-color">Secondary Emotions</th>
+                    <th *ngFor="let sens of physicalSensationList">{{sens.name}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let emotion of secondaryEmotionList;let i=index">
+                    <th class="primary-color">{{emotion.name}}</th>
+                    <td class="white-color" *ngFor="let sens of emotion.physicalList;let j=index" (click)="setRelation(i,j)"
+                        [ngClass]="{'bg-success':sens.related,'bg-danger':!sens.related}">{{sens.related ? 'YES' : 'NO'}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-lg btn-danger  float-left"
+                    (click)="cancel()">Cancel
+            </button>
+            <button type="button" class="btn btn-lg btn-success   float-left"
+                    (click)="edit()">Edit
+            </button>
+        </div>
+    </div>
+</div>
+

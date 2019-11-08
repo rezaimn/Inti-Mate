@@ -1,0 +1,37 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+    <div class="list-group">
+<!--        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">-->
+<!--            <i class="fa fa-fw fa-dashboard"></i>&nbsp;-->
+<!--            <span>{{ 'Dashboard' | translate }}</span>-->
+<!--        </a>-->
+        <a [routerLink]="['/physical-sensations']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
+            <span>Physical Sensations</span>
+        </a>
+        <a [routerLink]="['/emotions']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-table"></i>&nbsp;
+            <span>Emotions</span>
+        </a>
+        <a [routerLink]="['/emotion-physical']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-table"></i>&nbsp;
+            <span>Relations</span>
+        </a>
+        <a [routerLink]="['/thinking-habit-cards']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-desktop"></i>&nbsp;
+            <span>Thinking Habit</span>
+        </a>
+        <a [routerLink]="['/thought-mirror-dependencies']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-edit"></i>&nbsp;
+            <span>Thought Mirror</span>
+        </a>
+        <a [routerLink]="['/message-wizard']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-wrench"></i>&nbsp;
+            <span>Message Wizard</span>
+        </a>
+
+    </div>
+    <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+        <i class="fa fa-fw fa-angle-double-{{collapsed?'right':'left'}}"></i>&nbsp;
+        <span>{{ 'Collapse Sidebar' | translate }}</span>
+    </div>
+</nav>

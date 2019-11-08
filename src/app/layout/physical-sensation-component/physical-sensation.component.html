@@ -1,0 +1,80 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">Physical Sensations </h2>
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12">
+                <form role="form">
+                    <div class="row">
+                        <div class="col-5">
+                            <fieldset class="form-group">
+                                <label>Name: </label>
+                                <input class="form-control" name="name" [(ngModel)]="physicalSensation.name"
+                                       placeholder="Name">
+                            </fieldset>
+                        </div>
+                        <div class="col-4">
+                            <fieldset class="form-group">
+                                <label>Order: </label>
+                                <input type="number" class="form-control" name="order"
+                                       [(ngModel)]="physicalSensation.order" placeholder="Order">
+                            </fieldset>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-lg btn-success float-left"
+                                    (click)="addEdit()">{{editMode ? 'Edit' : 'Add'}}</button>
+                            <button type="button" class="btn btn-lg btn-danger float-left "
+                                    (click)="resetForm()">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Physical Sensations List
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Order</th>
+                    <th>Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of physicalSensationList;let i=index">
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.order}}</td>
+                    <td>
+                        <span class="table-buttons">
+                            <i class="fa  fa-edit primary-color pointer" (click)="setEditMode(item,i)"></i>
+                            <i class="fa  fa-trash-o danger-color pointer" (click)="selectItemToDelete(item,i);open(deleteModal)"></i>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #deleteModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <h4 class="text-center">Are you sure to delete this item?</h4>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger float-left" (click)="c('Close click');resetModal()">NO</button>
+        <button type="button" class="btn btn-success float-left" (click)="c('Close click');delete()">YES</button>
+    </div>
+</ng-template>

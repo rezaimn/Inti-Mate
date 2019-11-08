@@ -1,0 +1,69 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">Emotions</h2>
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12">
+                <form role="form">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label>General Feeling</label>
+                                <select class="form-control" name="general" [(ngModel)]="generalFeelingSelected" (ngModelChange)="preparePrimaryEmotions(generalFeelingSelected)">
+                                    <option ngValue="" disabled >Select A General Feeling</option>
+                                    <option ngValue="positive" >Positive</option>
+                                    <option ngValue="negative" >Negative</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label>Primary Emotions</label>
+                                <select class="form-control" name="primary" [(ngModel)]="levelOneSelected" (ngModelChange)="prepareSecondaryEmotions(levelOneSelected)">
+                                    <option ngValue="" disabled >Select A Primary Emotion</option>
+                                    <option [ngValue]="i" *ngFor="let item of levelOne;let i=index">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label>Secondary Emotions</label>
+                                <select class="form-control" name="secondary" [(ngModel)]="levelTwoSelected" (ngModelChange)="prepareTertiaryEmotions(levelTwoSelected)">
+                                    <option ngValue="" disabled >Select A Secondary Emotion</option>
+                                    <option [ngValue]="i" *ngFor="let item of levelTwo;let i=index">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <app-emotion-crud
+        crudTitle="Primary Form"
+        [type]="generalFeelingSelected"
+        [level]="'1'"
+        parent="0"
+        *ngIf="selectedLevel===1"
+        tableTitle="Primary Emotion List"
+        [emotionList]="levelOne"
+    ></app-emotion-crud>
+    <app-emotion-crud
+        crudTitle="Secondary Form"
+        [type]="levelOne[0].type"
+        [level]="'2'"
+        [parent]="levelOne[levelOneSelected].id"
+        *ngIf="selectedLevel===2"
+        tableTitle="Secondary Emotion List"
+        [emotionList]="levelTwo"
+    ></app-emotion-crud>
+    <app-emotion-crud
+        crudTitle="Tertiary Form"
+        [type]="levelTwo[0].type"
+        [level]="'3'"
+        [parent]="levelTwo[levelTwoSelected].id"
+        *ngIf="selectedLevel===3"
+        tableTitle="Tertiary Emotion List"
+        [emotionList]="levelThree"
+    ></app-emotion-crud>
+</div>
