@@ -8,15 +8,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ##screenshots
 
-![alt text](./src/screen-records/1.gif) 
+![alt text](./screen-records/intimate.gif) 
 
-![alt text](./src/screen-records/1.gif) 
-
-![alt text](./src/screen-records/1.gif) 
-
-![alt text](./src/screen-records/1.gif) 
-
-![alt text](./src/screen-records/1.gif) 
 ### Introduction
 
 Provides fast, reliable and extensible starter for the development of Angular projects.
