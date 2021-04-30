@@ -2586,9 +2586,9 @@ faye-websocket@~0.11.1:
     websocket-driver ">=0.5.1"
 
 figgy-pudding@^3.4.1, figgy-pudding@^3.5.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
-  integrity sha512-vNKxJHTEKNThjfrdJwHc7brvM6eVevuO5nTj6ez8ZQ1qbXTvGthucRF7S4vf2cr71QVnT70V34v0S1DyQsti0w==
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"
+  integrity sha512-0btnI/H8f2pavGMN8w40mlSKOfTK2SVJmBfBeVIj3kNw0swwgzyRq0d5TJVOwodFmtvpPeWPN/MCcfuWF0Ezbw==
 
 figures@^2.0.0:
   version "2.0.0"
@@ -4489,13 +4489,6 @@ ngx-bootstrap@^5.1.1:
   resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-5.1.1.tgz#aab63b218611eeeaed0c9e224f2033a992ac6e57"
   integrity sha512-++6+YHbIWTR/3sHH9C0aelIP25KMKhylWSEet6HonZfVr8quzEUjq6xEzTnDbZpnxlly2j58Gg0O9DWXu0UCxA==
 
-ngx-extended-pdf-viewer@^1.0.2:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/ngx-extended-pdf-viewer/-/ngx-extended-pdf-viewer-1.1.0.tgz#a1735affb7460c13b2678fd29e3cf97e99c09c39"
-  integrity sha512-io41Eg6mkklDgi6h08hTYiPMCFD6bKrOBsuX8606DeudBNcPTZeJH6M2lpEEUFsyxRWbxtbFeyBie/IP+kLd/A==
-  dependencies:
-    tslib "^1.9.0"
-
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
@@ -6283,9 +6276,9 @@ sshpk@^1.7.0:
     tweetnacl "~0.14.0"
 
 ssri@^6.0.0, ssri@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"
-  integrity sha512-3Wge10hNcT1Kur4PDFwEieXSCMCJs/7WvSACcrMYrNp+b8kDL1/0wJch5Ni2WrtwEa2IO8OsVfeKIciKCDx/QA==
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
+  integrity sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==
   dependencies:
     figgy-pudding "^3.5.1"
 
