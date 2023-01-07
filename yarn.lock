@@ -3822,9 +3822,9 @@ json5@^0.5.0:
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
 
 json5@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.1.tgz#779fb0018604fa854eacbf6252180d83543e3dbe"
-  integrity sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.2.tgz#63d98d60f21b313b77c4d6da18bfa69d80e1d593"
+  integrity sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==
   dependencies:
     minimist "^1.2.0"
 
@@ -4298,8 +4298,9 @@ minimist@0.0.8:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
 
 minimist@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
+  integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
 
 minimist@~0.0.1:
   version "0.0.10"
@@ -4488,13 +4489,6 @@ ngx-bootstrap@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-5.1.1.tgz#aab63b218611eeeaed0c9e224f2033a992ac6e57"
   integrity sha512-++6+YHbIWTR/3sHH9C0aelIP25KMKhylWSEet6HonZfVr8quzEUjq6xEzTnDbZpnxlly2j58Gg0O9DWXu0UCxA==
-
-ngx-extended-pdf-viewer@^1.0.2:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/ngx-extended-pdf-viewer/-/ngx-extended-pdf-viewer-1.1.0.tgz#a1735affb7460c13b2678fd29e3cf97e99c09c39"
-  integrity sha512-io41Eg6mkklDgi6h08hTYiPMCFD6bKrOBsuX8606DeudBNcPTZeJH6M2lpEEUFsyxRWbxtbFeyBie/IP+kLd/A==
-  dependencies:
-    tslib "^1.9.0"
 
 nice-try@^1.0.4:
   version "1.0.5"
